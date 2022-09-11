@@ -1,0 +1,134 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<style>
+    table {
+        border-spacing: 10px;
+        border-collapse: separate;
+    }
+
+            
+    td {
+        width: 50px;
+        height: 50px;
+        position: relative;
+    }
+    .td-disabled {
+        border: 1px solid;
+        background: gray;
+    }
+    .td-input {
+        border: 1px solid;
+    }
+
+
+    input {
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        border: 1px solid;
+        font-size: 30px;
+    }
+    .input-number {
+        background: green;
+    }
+    .input-operation {
+                background: purple;
+    }
+
+
+    .result {
+        background: gray;
+        pointer-events: none;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Magic square solver by Ereno</h1>
+</div>
+
+<center>
+	<form method="post">
+    <div class="magic-square-resolver-div">
+        <table class="magic-square-resolver-table">
+
+            <tr>
+                <td class="square-invisible"></td> 
+                <td class="td-input"><input class="input-number" type="text" name="input1" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-number" type="text" name="input2" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-number" type="text" name="input3" runat="server"></td>
+                <td class="square-invisible"></td>
+            </tr>
+                    
+            <tr>
+                <td class="td-input"><input class="input-number" type="text" name="input4" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result1" value=@Model.Solve1></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation5" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result2" value=@Model.Solve2></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation6" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result3" value=@Model.Solve3></td>
+                <td class="td-input"><input class="input-number" type="text" name="input7" runat="server"></td>
+            </tr>
+
+            <tr>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation8" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation9" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation10" runat="server"></td>
+                <td class="square-invisible"></td>
+            </tr>
+
+            <tr>
+                <td class="td-input"><input class="input-number" type="text" name="input11" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result4" value=@Model.Solve4></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation12" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result5" value=@Model.Solve5></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation13" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result6" value=@Model.Solve6></td>
+                <td class="td-input"><input class="input-number" type="text" name="input14" runat="server"></td>
+            </tr>
+
+            <tr>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation15" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation16" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation17" runat="server"></td>
+                <td class="square-invisible"></td>
+            </tr>
+
+            <tr>
+                <td class="td-input"><input class="input-number" type="text" name="input18" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result7" value=@Model.Solve7></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation19" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result8" value=@Model.Solve8></td>
+                <td class="td-input"><input class="input-operation" type="text" name="operation20" runat="server"></td>
+                <td class="td-disabled"><input class="result" type="text" name="result9" value=@Model.Solve9></td>
+                <td class="td-input"><input class="input-number" type="text" name="input21" runat="server"></td>
+            </tr>
+
+            <tr>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-number" type="text" name="input22" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-number" type="text" name="input23" runat="server"></td>
+                <td class="square-invisible"></td>
+                <td class="td-input"><input class="input-number" type="text" name="input24" runat="server"></td>
+                <td class="square-invisible"></td>
+            </tr>
+
+        </table>
+    </div>
+    <br/><br/>
+	    <button asp-page="Index" asp-page-handler="ResolveMagicSquare">Solve magic square!</button>
+    </form>
+</center>
